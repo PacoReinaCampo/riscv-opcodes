@@ -13,6 +13,19 @@ overlapping_extensions = {
     "rv_p": {"rv_zbb"},
 }
 
+overlapping_memory_extensions = {
+    "rv_w": {"rv_v", "rv_y"},
+    "rv_y": {"rv_v"},
+    "rv_zwtbase": {"rv_zvtbase", "rv_zytbase"},
+    "rv_zytbase": {"rv_zvtbase"},
+    "rv_zwt8e": {"rv_zvt8e", "rv_zyt8e"},
+    "rv_zyt8e": {"rv_zvt8e"},
+    "rv_zwt16e": {"rv_zvt16e", "rv_zyt16e"},
+    "rv_zyt16e": {"rv_zvt16e"},
+    "rv_zwt64e": {"rv_zvt64e", "rv_zyt64e"},
+    "rv_zyt64e": {"rv_zvt64e"},
+}
+
 overlapping_instructions = {
     "c_addi": {"c_nop"},
     "c_lui": {"c_addi16sp"},

@@ -14,6 +14,7 @@ from .constants import (
     imported_regex,
     overlapping_extensions,
     overlapping_instructions,
+    overlapping_memory_extensions,
     pseudo_regex,
     single_fixed,
 )
@@ -288,6 +289,17 @@ def extension_overlap_allowed(x: str, y: str) -> bool:
     return overlap_allowed(overlapping_extensions, x, y)
 
 
+def memory_overlap_allowed(
+    ext1: str, ext2: str, encoding1: str, encoding2: str
+) -> bool:
+    opcode = encoding1[-7:]
+    return (
+        opcode in {"0000111", "0100111"}
+        and encoding2[-7:] == opcode
+        and overlap_allowed(overlapping_memory_extensions, ext1, ext2)
+    )
+
+
 # Check overlap allowance between instructions
 def instruction_overlap_allowed(x: str, y: str) -> bool:
     """Checks if overlap is allowed between two instructions using the overlapping_instructions dictionary."""
@@ -439,6 +451,12 @@ def process_standard_instructions(
                     overlaps(item["encoding"], single_dict["encoding"])
                     and not extension_overlap_allowed(ext_name, item["extension"][0])
                     and not instruction_overlap_allowed(name, key)
+                    and not memory_overlap_allowed(
+                        ext_name,
+                        item["extension"][0],
+                        single_dict["encoding"],
+                        item["encoding"],
+                    )
                     and same_base_isa(ext_name, item["extension"])
                 ):
                     overlap_msg = f'Instruction {name} in extension {ext_name} overlaps with {key} in {item["extension"]}'

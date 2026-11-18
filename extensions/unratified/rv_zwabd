@@ -1,0 +1,9 @@
+wabdu.ww                  wm ws2 ws1 wrd 31..26=0x16 14..12=0x2 6..0=0xb
+wabdu.wx                  wm ws2 rs1 wrd 31..26=0x16 14..12=0x6 6..0=0xb
+wabd.ww                   wm ws2 ws1 wrd 31..26=0x15 14..12=0x2 6..0=0xb
+wabd.wx                   wm ws2 rs1 wrd 31..26=0x15 14..12=0x6 6..0=0xb
+wwabdau.ww                wm ws2 ws1 wrd 31..26=0x3e 14..12=0x0 6..0=0xb
+wwabdau.wx                wm ws2 rs1 wrd 31..26=0x3e 14..12=0x4 6..0=0xb
+wwabda.ww                 wm ws2 ws1 wrd 31..26=0x3d 14..12=0x0 6..0=0xb
+wwabda.wx                 wm ws2 rs1 wrd 31..26=0x3d 14..12=0x4 6..0=0xb
+$pseudo_op rv_zwabd::wabd.wx wabs.w wm ws2 wrd 31..26=0x15 19..15=0x0 14..12=0x6 6..0=0xb

@@ -1,0 +1,5 @@
+wpaire.ww                 wm ws2 ws1 wrd 31..26=0xf 14..12=0x0 6..0=0xb
+wpairo.ww                 wm ws2 ws1 wrd 31..26=0xf 14..12=0x2 6..0=0xb
+wunzipe.w                 wm ws2 wrd 31..26=0x12 19..15=0xb 14..12=0x2 6..0=0xb
+wunzipo.w                 wm ws2 wrd 31..26=0x12 19..15=0xf 14..12=0x2 6..0=0xb
+wzip.ww                   wm ws2 ws1 wrd 31..26=0x3e 14..12=0x2 6..0=0xb

@@ -1,0 +1,16 @@
+yandn.yy                  ym ys2 ys1 yd 31..26=0x1 14..12=0x0 6..0=0x2b
+yandn.yx                  ym ys2 rs1 yd 31..26=0x1 14..12=0x4 6..0=0x2b
+ybrev8.y                  ym ys2 yd 31..26=0x12 19..15=0x8 14..12=0x2 6..0=0x2b
+ybrev.y                   ym ys2 yd 31..26=0x12 19..15=0xa 14..12=0x2 6..0=0x2b
+yclz.y                    ym ys2 yd 31..26=0x12 19..15=0xc 14..12=0x2 6..0=0x2b
+ycpop.y                   ym ys2 yd 31..26=0x12 19..15=0xe 14..12=0x2 6..0=0x2b
+yctz.y                    ym ys2 yd 31..26=0x12 19..15=0xd 14..12=0x2 6..0=0x2b
+yrev8.y                   ym ys2 yd 31..26=0x12 19..15=0x9 14..12=0x2 6..0=0x2b
+yrol.yy                   ym ys2 ys1 yd 31..26=0x15 14..12=0x0 6..0=0x2b
+yrol.yx                   ym ys2 rs1 yd 31..26=0x15 14..12=0x4 6..0=0x2b
+yror.yi                   zimm6hi ym ys2 zimm6lo yd 31..27=0xa 14..12=0x3 6..0=0x2b
+yror.yy                   ym ys2 ys1 yd 31..26=0x14 14..12=0x0 6..0=0x2b
+yror.yx                   ym ys2 rs1 yd 31..26=0x14 14..12=0x4 6..0=0x2b
+ywsll.yi                  ym ys2 zimm5 yd 31..26=0x35 14..12=0x3 6..0=0x2b
+ywsll.yy                  ym ys2 ys1 yd 31..26=0x35 14..12=0x0 6..0=0x2b
+ywsll.yx                  ym ys2 rs1 yd 31..26=0x35 14..12=0x4 6..0=0x2b

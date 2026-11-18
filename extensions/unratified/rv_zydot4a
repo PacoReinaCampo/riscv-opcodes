@@ -1,0 +1,7 @@
+ydot4asu.yy               ym ys2 ys1 yd 31..26=0x2a 14..12=0x2 6..0=0x2b
+ydot4asu.yx               ym ys2 rs1 yd 31..26=0x2a 14..12=0x6 6..0=0x2b
+ydot4aus.yx               ym ys2 rs1 yd 31..26=0x2e 14..12=0x6 6..0=0x2b
+ydot4au.yy                ym ys2 ys1 yd 31..26=0x28 14..12=0x2 6..0=0x2b
+ydot4au.yx                ym ys2 rs1 yd 31..26=0x28 14..12=0x6 6..0=0x2b
+ydot4a.yy                 ym ys2 ys1 yd 31..26=0x2c 14..12=0x2 6..0=0x2b
+ydot4a.yx                 ym ys2 rs1 yd 31..26=0x2c 14..12=0x6 6..0=0x2b

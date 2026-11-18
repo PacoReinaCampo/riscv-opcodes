@@ -1,0 +1,2 @@
+wfncvtbf16.f.f.wide       wm ws2 wrd 31..26=0x12 19..15=0x1d 14..12=0x1 6..0=0xb
+wfwcvtbf16.f.f.w          wm ws2 wrd 31..26=0x12 19..15=0xd 14..12=0x1 6..0=0xb

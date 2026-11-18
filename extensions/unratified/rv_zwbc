@@ -1,0 +1,4 @@
+wclmulh.ww                wm ws2 ws1 wrd 31..26=0xd 14..12=0x2 6..0=0xb
+wclmulh.wx                wm ws2 rs1 wrd 31..26=0xd 14..12=0x6 6..0=0xb
+wclmul.ww                 wm ws2 ws1 wrd 31..26=0xc 14..12=0x2 6..0=0xb
+wclmul.wx                 wm ws2 rs1 wrd 31..26=0xc 14..12=0x6 6..0=0xb

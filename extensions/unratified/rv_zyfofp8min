@@ -1,0 +1,3 @@
+yfncvtbf16.sat.f.f.wide   ym ys2 yd 31..26=0x12 19..15=0x1f 14..12=0x1 6..0=0x2b
+yfncvt.f.f.q              ym ys2 yd 31..26=0x12 19..15=0x19 14..12=0x1 6..0=0x2b
+yfncvt.sat.f.f.q          ym ys2 yd 31..26=0x12 19..15=0x1b 14..12=0x1 6..0=0x2b

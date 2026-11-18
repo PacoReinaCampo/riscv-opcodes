@@ -1,0 +1,7 @@
+wdot4asu.ww               wm ws2 ws1 wrd 31..26=0x2a 14..12=0x2 6..0=0xb
+wdot4asu.wx               wm ws2 rs1 wrd 31..26=0x2a 14..12=0x6 6..0=0xb
+wdot4aus.wx               wm ws2 rs1 wrd 31..26=0x2e 14..12=0x6 6..0=0xb
+wdot4au.ww                wm ws2 ws1 wrd 31..26=0x28 14..12=0x2 6..0=0xb
+wdot4au.wx                wm ws2 rs1 wrd 31..26=0x28 14..12=0x6 6..0=0xb
+wdot4a.ww                 wm ws2 ws1 wrd 31..26=0x2c 14..12=0x2 6..0=0xb
+wdot4a.wx                 wm ws2 rs1 wrd 31..26=0x2c 14..12=0x6 6..0=0xb

@@ -1,0 +1,4 @@
+yclmulh.yy                ym ys2 ys1 yd 31..26=0xd 14..12=0x2 6..0=0x2b
+yclmulh.yx                ym ys2 rs1 yd 31..26=0xd 14..12=0x6 6..0=0x2b
+yclmul.yy                 ym ys2 ys1 yd 31..26=0xc 14..12=0x2 6..0=0x2b
+yclmul.yx                 ym ys2 rs1 yd 31..26=0xc 14..12=0x6 6..0=0x2b
