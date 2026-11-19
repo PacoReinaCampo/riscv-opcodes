@@ -625,14 +625,3 @@ yxor.yx                   ym ys2 rs1 yd 31..26=0xb 14..12=0x4 6..0=0x2b
 yzext.yf2                 ym ys2 yd 31..26=0x12 19..15=0x6 14..12=0x2 6..0=0x2b
 yzext.yf4                 ym ys2 yd 31..26=0x12 19..15=0x4 14..12=0x2 6..0=0x2b
 yzext.yf8                 ym ys2 yd 31..26=0x12 19..15=0x2 14..12=0x2 6..0=0x2b
-$pseudo_op rv_y::ycpop.m ypopc.m ym ys2 rd 31..26=0x10 19..15=0x10 14..12=0x2 6..0=0x2b
-$pseudo_op rv_y::yfredusum.ys yfredsum.ys ym ys2 ys1 yd 31..26=0x1 14..12=0x1 6..0=0x2b
-$pseudo_op rv_y::yfwredusum.ys yfwredsum.ys ym ys2 ys1 yd 31..26=0x31 14..12=0x1 6..0=0x2b
-$pseudo_op rv_y::yl1re8.y yl1r.y rs1 yd 31..26=0x0 25=1 24..20=0x8 14..12=0x0 6..0=0x7
-$pseudo_op rv_y::yl2re8.y yl2r.y rs1 yd 31..26=0x8 25=1 24..20=0x8 14..12=0x0 6..0=0x7
-$pseudo_op rv_y::yl4re8.y yl4r.y rs1 yd 31..26=0x18 25=1 24..20=0x8 14..12=0x0 6..0=0x7
-$pseudo_op rv_y::yl8re8.y yl8r.y rs1 yd 31..26=0x38 25=1 24..20=0x8 14..12=0x0 6..0=0x7
-$pseudo_op rv_y::ylm.y yle1.y rs1 yd 31..26=0x0 25=1 24..20=0xb 14..12=0x0 6..0=0x7
-$pseudo_op rv_y::ymandn.mm ymandnot.mm ys2 ys1 yd 31..26=0x18 25=1 14..12=0x2 6..0=0x2b
-$pseudo_op rv_y::ymorn.mm ymornot.mm ys2 ys1 yd 31..26=0x1c 25=1 14..12=0x2 6..0=0x2b
-$pseudo_op rv_y::ysm.y yse1.y rs1 ys3 31..26=0x0 25=1 24..20=0xb 14..12=0x0 6..0=0x27
