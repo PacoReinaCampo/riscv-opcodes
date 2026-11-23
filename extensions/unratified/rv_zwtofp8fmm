@@ -1,2 +1,2 @@
-wtfmm.alt.tww             ws2 ws1 zwt_mtd8 31..26=0x3c 25=1 14..12=0x1 8..7=0x1 6..0=0x5f
-wtfmm.tww                 ws2 ws1 zwt_mtd8 31..26=0x3c 25=1 14..12=0x1 8..7=0x0 6..0=0x5f
+wtfmm.alt.tww             ws2 ws1 zwt_mtd8 31..26=0x3c 25=1 14..12=0x1 8..7=0x1 6..0=0x1f
+wtfmm.tww                 ws2 ws1 zwt_mtd8 31..26=0x3c 25=1 14..12=0x1 8..7=0x0 6..0=0x1f
