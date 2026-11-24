@@ -1,2 +1,2 @@
-wfqwbdota.alt.ww          wm ws2x8 ci ws1 wrd 31..26=0x2f 14..12=0x1 6..0=0x1f
-wfqwbdota.ww              wm ws2x8 ci ws1 wrd 31..26=0x2e 14..12=0x1 6..0=0x1f
+wfqwbdota.alt.ww          wm ws2x8 ci ws1 wd 31..26=0x2f 14..12=0x1 6..0=0x1f
+wfqwbdota.ww              wm ws2x8 ci ws1 wd 31..26=0x2e 14..12=0x1 6..0=0x1f

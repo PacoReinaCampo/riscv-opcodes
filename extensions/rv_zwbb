@@ -1,16 +1,16 @@
-wandn.ww                  wm ws2 ws1 wrd 31..26=0x1 14..12=0x0 6..0=0xb
-wandn.wx                  wm ws2 rs1 wrd 31..26=0x1 14..12=0x4 6..0=0xb
-wbrev8.w                  wm ws2 wrd 31..26=0x12 19..15=0x8 14..12=0x2 6..0=0xb
-wbrev.w                   wm ws2 wrd 31..26=0x12 19..15=0xa 14..12=0x2 6..0=0xb
-wclz.w                    wm ws2 wrd 31..26=0x12 19..15=0xc 14..12=0x2 6..0=0xb
-wcpop.w                   wm ws2 wrd 31..26=0x12 19..15=0xe 14..12=0x2 6..0=0xb
-wctz.w                    wm ws2 wrd 31..26=0x12 19..15=0xd 14..12=0x2 6..0=0xb
-wrev8.w                   wm ws2 wrd 31..26=0x12 19..15=0x9 14..12=0x2 6..0=0xb
-wrol.ww                   wm ws2 ws1 wrd 31..26=0x15 14..12=0x0 6..0=0xb
-wrol.wx                   wm ws2 rs1 wrd 31..26=0x15 14..12=0x4 6..0=0xb
-wror.wi                   zimm6hi wm ws2 zimm6lo wrd 31..27=0xa 14..12=0x3 6..0=0xb
-wror.ww                   wm ws2 ws1 wrd 31..26=0x14 14..12=0x0 6..0=0xb
-wror.wx                   wm ws2 rs1 wrd 31..26=0x14 14..12=0x4 6..0=0xb
-wwsll.wi                  wm ws2 zimm5 wrd 31..26=0x35 14..12=0x3 6..0=0xb
-wwsll.ww                  wm ws2 ws1 wrd 31..26=0x35 14..12=0x0 6..0=0xb
-wwsll.wx                  wm ws2 rs1 wrd 31..26=0x35 14..12=0x4 6..0=0xb
+wandn.ww                  wm ws2 ws1 wd 31..26=0x1 14..12=0x0 6..0=0xb
+wandn.wx                  wm ws2 rs1 wd 31..26=0x1 14..12=0x4 6..0=0xb
+wbrev8.w                  wm ws2 wd 31..26=0x12 19..15=0x8 14..12=0x2 6..0=0xb
+wbrev.w                   wm ws2 wd 31..26=0x12 19..15=0xa 14..12=0x2 6..0=0xb
+wclz.w                    wm ws2 wd 31..26=0x12 19..15=0xc 14..12=0x2 6..0=0xb
+wcpop.w                   wm ws2 wd 31..26=0x12 19..15=0xe 14..12=0x2 6..0=0xb
+wctz.w                    wm ws2 wd 31..26=0x12 19..15=0xd 14..12=0x2 6..0=0xb
+wrev8.w                   wm ws2 wd 31..26=0x12 19..15=0x9 14..12=0x2 6..0=0xb
+wrol.ww                   wm ws2 ws1 wd 31..26=0x15 14..12=0x0 6..0=0xb
+wrol.wx                   wm ws2 rs1 wd 31..26=0x15 14..12=0x4 6..0=0xb
+wror.wi                   zimm6hi wm ws2 zimm6lo wd 31..27=0xa 14..12=0x3 6..0=0xb
+wror.ww                   wm ws2 ws1 wd 31..26=0x14 14..12=0x0 6..0=0xb
+wror.wx                   wm ws2 rs1 wd 31..26=0x14 14..12=0x4 6..0=0xb
+wwsll.wi                  wm ws2 zimm5 wd 31..26=0x35 14..12=0x3 6..0=0xb
+wwsll.ww                  wm ws2 ws1 wd 31..26=0x35 14..12=0x0 6..0=0xb
+wwsll.wx                  wm ws2 rs1 wd 31..26=0x35 14..12=0x4 6..0=0xb

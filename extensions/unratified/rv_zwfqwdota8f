@@ -1,2 +1,2 @@
-wfqwdota.alt.ww           wm ws2 ws1 wrd 31..26=0x27 14..12=0x1 6..0=0x1f
-wfqwdota.ww               wm ws2 ws1 wrd 31..26=0x26 14..12=0x1 6..0=0x1f
+wfqwdota.alt.ww           wm ws2 ws1 wd 31..26=0x27 14..12=0x1 6..0=0x1f
+wfqwdota.ww               wm ws2 ws1 wd 31..26=0x26 14..12=0x1 6..0=0x1f
