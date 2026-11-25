@@ -8,8 +8,10 @@ PSEUDO_FLAG := $(if $(PSEUDO),-pseudo,)
 
 ifeq ($(shell command -v uv 2>/dev/null),)
 	RUNNER := PYTHONPATH=src python -m
+	TEST_RUNNER := PYTHONPATH=src python
 else
 	RUNNER := uv run
+	TEST_RUNNER := uv run
 endif
 
 .PHONY : default
@@ -51,7 +53,7 @@ install: everything
 	done
 
 test:
-	@$(RUNNER) -m unittest -b tests/test.py
+	@$(TEST_RUNNER) -m unittest -b tests/test.py
 
 instr-table.tex: latex
 
