@@ -256,11 +256,16 @@ def defragment_encodings(
 
 def defragment_encoding_dict(instr_dict: InstrDict) -> InstrDict:
     """Apply defragmentation to the encoding dictionary."""
-    encodings = [instr["encoding"] for instr in instr_dict.values()]
-    encodings_defragemented = defragment_encodings(encodings, length=32, offset=0)
-    for index, instr in enumerate(instr_dict):
-        instr_dict[instr]["encoding"] = encodings_defragemented[index]
-    return instr_dict
+    if not instr_dict:
+        return instr_dict
+
+    width = max(len(instr["encoding"]) for instr in instr_dict.values())
+    encodings = [instr["encoding"].rjust(width, "-") for instr in instr_dict.values()]
+    arranged = defragment_encodings(encodings, length=width, offset=0)
+    return {
+        name: {**instr, "encoding": pattern}
+        for (name, instr), pattern in zip(instr_dict.items(), arranged)
+    }
 
 
 def make_svg(instr_dict: InstrDict) -> None:

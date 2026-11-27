@@ -1,0 +1,65 @@
+o.add     rd rs1 rs2                 63..39=0 38..32=0x33 31..25=0x0 14..12=0x0 6..0=0x3f
+o.addi    rd rs1 imm12               63..39=0 38..32=0x13 14..12=0x0 6..0=0x3f
+o.and     rd rs1 rs2                 63..39=0 38..32=0x33 31..25=0x0 14..12=0x7 6..0=0x3f
+o.andi    rd rs1 imm12               63..39=0 38..32=0x13 14..12=0x7 6..0=0x3f
+o.auipc   rd imm20                   63..39=0 38..32=0x17 6..0=0x3f
+o.beq     bimm12hi rs1 rs2 bimm12lo  63..39=0 38..32=0x63 14..12=0x0 6..0=0x3f
+o.bge     bimm12hi rs1 rs2 bimm12lo  63..39=0 38..32=0x63 14..12=0x5 6..0=0x3f
+o.bgeu    bimm12hi rs1 rs2 bimm12lo  63..39=0 38..32=0x63 14..12=0x7 6..0=0x3f
+o.blt     bimm12hi rs1 rs2 bimm12lo  63..39=0 38..32=0x63 14..12=0x4 6..0=0x3f
+o.bltu    bimm12hi rs1 rs2 bimm12lo  63..39=0 38..32=0x63 14..12=0x6 6..0=0x3f
+o.bne     bimm12hi rs1 rs2 bimm12lo  63..39=0 38..32=0x63 14..12=0x1 6..0=0x3f
+o.ebreak                             63..39=0 38..32=0x73 31..7=0x2000 6..0=0x3f
+o.ecall                              63..39=0 38..32=0x73 31..7=0x0 6..0=0x3f
+o.fence   fm pred succ rs1 rd        63..39=0 38..32=0x0f 14..12=0x0 6..0=0x3f
+o.jal     rd jimm20                  63..39=0 38..32=0x6f 6..0=0x3f
+o.jalr    rd rs1 imm12               63..39=0 38..32=0x67 14..12=0x0 6..0=0x3f
+o.lb      rd rs1 imm12               63..39=0 38..32=0x03 14..12=0x0 6..0=0x3f
+o.lbu     rd rs1 imm12               63..39=0 38..32=0x03 14..12=0x4 6..0=0x3f
+o.lh      rd rs1 imm12               63..39=0 38..32=0x03 14..12=0x1 6..0=0x3f
+o.lhu     rd rs1 imm12               63..39=0 38..32=0x03 14..12=0x5 6..0=0x3f
+o.lui     rd imm20                   63..39=0 38..32=0x37 6..0=0x3f
+o.lw      rd rs1 imm12               63..39=0 38..32=0x03 14..12=0x2 6..0=0x3f
+o.or      rd rs1 rs2                 63..39=0 38..32=0x33 31..25=0x0 14..12=0x6 6..0=0x3f
+o.ori     rd rs1 imm12               63..39=0 38..32=0x13 14..12=0x6 6..0=0x3f
+o.sb      imm12hi rs1 rs2 imm12lo    63..39=0 38..32=0x23 14..12=0x0 6..0=0x3f
+o.sh      imm12hi rs1 rs2 imm12lo    63..39=0 38..32=0x23 14..12=0x1 6..0=0x3f
+o.sll     rd rs1 rs2                 63..39=0 38..32=0x33 31..25=0x0 14..12=0x1 6..0=0x3f
+o.slt     rd rs1 rs2                 63..39=0 38..32=0x33 31..25=0x0 14..12=0x2 6..0=0x3f
+o.slti    rd rs1 imm12               63..39=0 38..32=0x13 14..12=0x2 6..0=0x3f
+o.sltiu   rd rs1 imm12               63..39=0 38..32=0x13 14..12=0x3 6..0=0x3f
+o.sltu    rd rs1 rs2                 63..39=0 38..32=0x33 31..25=0x0 14..12=0x3 6..0=0x3f
+o.sra     rd rs1 rs2                 63..39=0 38..32=0x33 31..25=0x20 14..12=0x5 6..0=0x3f
+o.srl     rd rs1 rs2                 63..39=0 38..32=0x33 31..25=0x0 14..12=0x5 6..0=0x3f
+o.sub     rd rs1 rs2                 63..39=0 38..32=0x33 31..25=0x20 14..12=0x0 6..0=0x3f
+o.sw      imm12hi rs1 rs2 imm12lo    63..39=0 38..32=0x23 14..12=0x2 6..0=0x3f
+o.xor     rd rs1 rs2                 63..39=0 38..32=0x33 31..25=0x0 14..12=0x4 6..0=0x3f
+o.xori    rd rs1 imm12               63..39=0 38..32=0x13 14..12=0x4 6..0=0x3f
+
+$pseudo_op rv_o::o.fence o.fence_tso   rs1 rd                     63..39=0 38..32=0x0f 31..20=0x833 14..12=0x0 6..0=0x3f
+$pseudo_op rv_o::o.fence o.pause                                  63..39=0 38..32=0x0f 31..7=0x20000 6..0=0x3f
+$pseudo_op rv_o::o.ecall o.scall                                  63..39=0 38..32=0x73 31..7=0x0 6..0=0x3f
+$pseudo_op rv_o::o.ebreak o.sbreak                                63..39=0 38..32=0x73 31..7=0x2000 6..0=0x3f
+$pseudo_op rv_o::o.addi o.mv           rd rs1                     63..39=0 38..32=0x13 31..20=0x0 14..12=0x0 6..0=0x3f
+$pseudo_op rv_o::o.sub o.neg           rd rs2                     63..39=0 38..32=0x33 31..25=0x20 19..12=0x0 6..0=0x3f
+$pseudo_op rv_o::o.addi o.nop                                     63..39=0 38..32=0x13 31..7=0x0 6..0=0x3f
+$pseudo_op rv_o::o.andi o.zext_b       rd rs1                     63..39=0 38..32=0x13 31..20=0xff 14..12=0x7 6..0=0x3f
+$pseudo_op rv_o::o.jalr o.ret                                     63..39=0 38..32=0x67 31..7=0x100 6..0=0x3f
+$pseudo_op rv_o::o.bgeu o.bleu         bimm12hi rs2 rs1 bimm12lo  63..39=0 38..32=0x63 14..12=0x7 6..0=0x3f
+$pseudo_op rv_o::o.bltu o.bgtu         bimm12hi rs2 rs1 bimm12lo  63..39=0 38..32=0x63 14..12=0x6 6..0=0x3f
+$pseudo_op rv_o::o.bge o.ble           bimm12hi rs2 rs1 bimm12lo  63..39=0 38..32=0x63 14..12=0x5 6..0=0x3f
+$pseudo_op rv_o::o.bge o.bgez          bimm12hi rs1 bimm12lo      63..39=0 38..32=0x63 24..20=0x0 14..12=0x5 6..0=0x3f
+$pseudo_op rv_o::o.bge o.blez          bimm12hi rs2 bimm12lo      63..39=0 38..32=0x63 19..12=0x5 6..0=0x3f
+$pseudo_op rv_o::o.blt o.bgt           bimm12hi rs2 rs1 bimm12lo  63..39=0 38..32=0x63 14..12=0x4 6..0=0x3f
+$pseudo_op rv_o::o.blt o.bgtz          bimm12hi rs2 bimm12lo      63..39=0 38..32=0x63 19..12=0x4 6..0=0x3f
+$pseudo_op rv_o::o.blt o.bltz          bimm12hi rs1 bimm12lo      63..39=0 38..32=0x63 24..20=0x0 14..12=0x4 6..0=0x3f
+$pseudo_op rv_o::o.bne o.bnez          bimm12hi rs1 bimm12lo      63..39=0 38..32=0x63 24..20=0x0 14..12=0x1 6..0=0x3f
+$pseudo_op rv_o::o.beq o.beqz          bimm12hi rs1 bimm12lo      63..39=0 38..32=0x63 24..20=0x0 14..12=0x0 6..0=0x3f
+$pseudo_op rv_o::o.sltiu o.seqz        rd rs1                     63..39=0 38..32=0x13 31..20=0x1 14..12=0x3 6..0=0x3f
+$pseudo_op rv_o::o.sltu o.snez         rd rs2                     63..39=0 38..32=0x33 31..25=0x0 19..12=0x3 6..0=0x3f
+$pseudo_op rv_o::o.slt o.sltz          rd rs1                     63..39=0 38..32=0x33 31..20=0x0 14..12=0x2 6..0=0x3f
+$pseudo_op rv_o::o.slt o.sgtz          rd rs2                     63..39=0 38..32=0x33 31..25=0x0 19..12=0x2 6..0=0x3f
+$pseudo_op rv_o::o.jalr o.jalr.pseudo  rs1                        63..39=0 38..32=0x67 31..20=0x0 14..7=0x1 6..0=0x3f
+$pseudo_op rv_o::o.jalr o.jr           rs1                        63..39=0 38..32=0x67 31..20=0x0 14..7=0x0 6..0=0x3f
+$pseudo_op rv_o::o.jal o.jal.pseudo    jimm20                     63..39=0 38..32=0x6f 11..7=0x1 6..0=0x3f
+$pseudo_op rv_o::o.jal o.j             jimm20                     63..39=0 38..32=0x6f 11..7=0x0 6..0=0x3f

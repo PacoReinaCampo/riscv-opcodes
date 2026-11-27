@@ -43,8 +43,15 @@ var csrs = map[uint16]string {
 """
 
     instr_str = ""
-    for i in instr_dict:
-        enc_match = int(instr_dict[i]["match"], 0)
+    long_entries = []
+    for i, instr in instr_dict.items():
+        width = len(instr["encoding"])
+        if width > 32:
+            long_entries.append(
+                f'\t"{i}": {{{width}, {instr["match"]}, {instr["mask"]}}},\n'
+            )
+            continue
+        enc_match = int(instr["match"], 0)
         opcode = (enc_match >> 0) & ((1 << 7) - 1)
         funct3 = (enc_match >> 12) & ((1 << 3) - 1)
         rs1 = (enc_match >> 15) & ((1 << 5) - 1)
@@ -62,3 +69,15 @@ var csrs = map[uint16]string {
         file.write(instr_str)
         file.write(csrs_map_str)
         file.write(endoffile)
+        if long_entries:
+            file.write("""
+type longInst struct {
+	width uint8
+	match uint64
+	mask  uint64
+}
+
+var longEncodings = map[string]longInst{
+""")
+            file.writelines(long_entries)
+            file.write("}\n")

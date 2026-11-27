@@ -10,9 +10,11 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s:: %(message)s")
 
 def make_rust(instr_dict: InstrDict):
     mask_match_str = ""
-    for i in instr_dict:
-        mask_match_str += f'const MATCH_{i.upper().replace(".","_")}: u32 = {(instr_dict[i]["match"])};\n'
-        mask_match_str += f'const MASK_{i.upper().replace(".","_")}: u32 = {(instr_dict[i]["mask"])};\n'
+    for name, instr in instr_dict.items():
+        constant = name.upper().replace(".", "_")
+        value_type = "u64" if len(instr["encoding"]) > 32 else "u32"
+        mask_match_str += f'const MATCH_{constant}: {value_type} = {instr["match"]};\n'
+        mask_match_str += f'const MASK_{constant}: {value_type} = {instr["mask"]};\n'
     for num, name in csrs + csrs32:
         mask_match_str += f"const CSR_{name.upper()}: u16 = {hex(num)};\n"
     for num, name in causes:

@@ -11,8 +11,11 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s:: %(message)s")
 
 def make_sverilog(instr_dict: InstrDict):
     names_str = ""
-    for i in instr_dict:
-        names_str += f"  localparam [31:0] {i.upper().replace('.','_'):<18s} = 32'b{instr_dict[i]['encoding'].replace('-','?')};\n"
+    for name, instr in instr_dict.items():
+        pattern = instr["encoding"].replace("-", "?")
+        width = len(pattern)
+        constant = name.upper().replace(".", "_")
+        names_str += f"  localparam [{width - 1}:0] {constant:<18s} = {width}'b{pattern};\n"
     names_str += "  /* CSR Addresses */\n"
     for num, name in csrs + csrs32:
         names_str += (

@@ -66,7 +66,9 @@ def parse_instruction_line(line: str) -> "tuple[str, str]":
 # Verify Overlapping Bits
 def check_overlapping_bits(encoding: "list[str]", ind: int, line: str):
     """Check for overlapping bits in the encoding."""
-    if encoding[31 - ind] != "-":
+    if not 0 <= ind < len(encoding):
+        log_and_exit(f"{line.split()[0]} uses bit {ind} outside its encoding")
+    if encoding[-1 - ind] != "-":
         log_and_exit(
             f'{line.split(" ")[0]:<10} has {ind} bit overlapping in its opcodes'
         )
@@ -83,7 +85,7 @@ def update_encoding_for_fixed_range(
     for ind in range(lsb, msb + 1):
         check_overlapping_bits(encoding, ind, line)
         bit = str((entry_value >> (ind - lsb)) & 1)
-        encoding[31 - ind] = bit
+        encoding[-1 - ind] = bit
 
 
 # Process fixed bit patterns
@@ -106,8 +108,8 @@ def process_single_fixed(remaining: str, encoding: "list[str]", line: str):
         lsb = int(lsb, 0)
         value = int(value, 0)
 
-        check_overlapping_bits(encoding, lsb, line)
-        encoding[31 - lsb] = str(value)
+        validate_bit_range(lsb, lsb, value, line)
+        update_encoding_for_fixed_range(encoding, lsb, lsb, value, line)
 
 
 # Main function to check argument look-up table
@@ -146,7 +148,7 @@ def update_encoding_args(encoding_args: "list[str]", arg: str, msb: int, lsb: in
     """Update encoding arguments and ensure no overlapping."""
     for ind in range(lsb, msb + 1):
         check_overlapping_bits(encoding_args, ind, arg)
-        encoding_args[31 - ind] = arg
+        encoding_args[-1 - ind] = arg
 
 
 # Compute match and mask
@@ -184,7 +186,7 @@ def process_enc_line(line: str, ext: str) -> "tuple[str, SingleInstr]":
     a dictionary containing basic information of the instruction which includes:
         - variables: list of arguments used by the instruction whose mapping
           exists in the arg_lut dictionary
-        - encoding: this contains the 32-bit encoding of the instruction where
+        - encoding: this contains the 32-, 48- or 64-bit encoding of the instruction where
           '-' is used to represent position of arguments and 1/0 is used to
           reprsent the static encoding of the bits
         - extension: this field contains the rv* filename from which this
@@ -194,16 +196,27 @@ def process_enc_line(line: str, ext: str) -> "tuple[str, SingleInstr]":
         - mask: hex value representin the bits that need to be masked to extract
           the value required for matching.
     """
-    encoding = initialize_encoding()
-
-    # Parse the instruction line
     name, remaining = parse_instruction_line(line)
+    highest_bit = max(
+        [31]
+        + [int(msb) for msb, _, _ in fixed_ranges.findall(remaining)]
+        + [int(bit) for bit, _, _ in single_fixed.findall(remaining)]
+    )
+    width = next((size for size in (32, 48, 64) if highest_bit < size), None)
+    if width is None:
+        log_and_exit(f"{name} uses bit {highest_bit} outside the supported encoding widths")
+    encoding = initialize_encoding(width)
 
     # Process fixed ranges
     remaining = process_fixed_ranges(remaining, encoding, line)
 
     # Process single fixed assignments
     process_single_fixed(remaining, encoding, line)
+
+    if (width == 48 and "".join(encoding[-6:]) != "011111") or (
+        width == 64 and "".join(encoding[-7:]) != "0111111"
+    ):
+        log_and_exit(f"{name} has an invalid RISC-V length prefix for {width} bits")
 
     # Convert the list of encodings into a match and mask
     match, mask = convert_encoding_to_match_mask(encoding)
@@ -232,9 +245,9 @@ def extract_isa_type(ext_name: str) -> str:
 
 # Verify the types for RV*
 def is_rv_variant(type1: str, type2: str) -> bool:
-    """Checks if the types are RV variants (rv32/rv64)."""
-    return (type2 == "rv" and type1 in {"rv32", "rv64"}) or (
-        type1 == "rv" and type2 in {"rv32", "rv64"}
+    """Checks if the types are RV variants (rv32/rv64/rv128)."""
+    return (type2 == "rv" and type1 in {"rv32", "rv64", "rv128"}) or (
+        type1 == "rv" and type2 in {"rv32", "rv64", "rv128"}
     )
 
 
@@ -579,7 +592,7 @@ def create_inst_dict(
     a dictionary. The dictionary contents of each instruction includes:
         - variables: list of arguments used by the instruction whose mapping
           exists in the arg_lut dictionary
-        - encoding: this contains the 32-bit encoding of the instruction where
+        - encoding: this contains the 32-, 48- or 64-bit encoding of the instruction where
           '-' is used to represent position of arguments and 1/0 is used to
           reprsent the static encoding of the bits
         - extension: this field contains the rv* filename from which this

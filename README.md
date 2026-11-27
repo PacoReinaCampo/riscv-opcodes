@@ -104,10 +104,10 @@ For each regular instruction, the following checks are performed :
   - All bit positions must be accounted for (either as args or constant value fields)
 
 Once the above checks are passed for a regular instruction, we then create a dictionary for this instruction which contains the following fields:
-  - encoding : contains a 32-bit string defining the encoding of the instruction. Here `-` is used to represent instruction argument fields
+  - encoding : contains the instruction encoding as a 32-, 48- or 64-bit string. Here `-` marks instruction argument fields
   - extension : string indicating which extension/filename this instruction was picked from
-  - mask : a 32-bit hex value indicating the bits of the encodings that must be checked for legality of that instruction
-  - match : a 32-bit hex value indicating the values the encoding must take for the bits which are set as 1 in the mask above
+  - mask : a hex value indicating the bits of the encodings that must be checked for legality of that instruction
+  - match : a hex value indicating the values the encoding must take for the bits which are set as 1 in the mask above
   - variable_fields : This is list of args required by the instruction
 
 The above dictionary elements are added to a main `instr_dict` dictionary under the instruction node. This process continues until all regular
